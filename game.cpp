@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include "game.h"
 #include "config/config.h"
 
@@ -24,7 +25,14 @@ Game::Game(char* title, int xPos, int yPos, int width, int height, Uint32 flags)
     if(!renderer)
         std::cout << "Failed to create renderer." << std::endl;
 
-    fillRect = { 0, 0, 25, 25 };
+    player = new Player(renderer);
+    map = new Map(renderer);
+
+    bool parse = map->parseMap();
+
+    if(!parse) {
+        std::cout << "Unable to parse map" << std::endl;
+    }
 }
 
 void Game::update(float deltaTime) {
@@ -36,10 +44,8 @@ void Game::render() {
     SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
     SDL_RenderClear(renderer);
 
-    // Prepare a red rectangle for rendering
-    SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0x00);
-    SDL_RenderFillRect(renderer, &fillRect);
-    SDL_RenderDrawRect(renderer, &fillRect);
+    // Render player texture
+    player->draw();
 
     // Render the screen
     SDL_RenderPresent(renderer);
@@ -52,6 +58,7 @@ bool Game::isRunning() const {
 void Game::clean() {
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+    SDL_Quit();
 }
 
 void Game::handleEvents() {

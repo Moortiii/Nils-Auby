@@ -1,0 +1,38 @@
+{ "height":5,
+ "infinite":false,
+ "layers":[
+        {
+         "data":[163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163, 163],
+         "height":5,
+         "name":"Tile Layer 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tiledversion":"1.1.6",
+ "tileheight":16,
+ "tilesets":[
+        {
+         "columns":32,
+         "firstgid":1,
+         "image":"dungeon_spritesheet.png",
+         "imageheight":512,
+         "imagewidth":512,
+         "margin":0,
+         "name":"dungeon_spritesheet",
+         "spacing":0,
+         "tilecount":1024,
+         "tileheight":16,
+         "tilewidth":16
+        }],
+ "tilewidth":16,
+ "type":"map",
+ "version":1,
+ "width":5
+}

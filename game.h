@@ -9,7 +9,10 @@
 #include <SDL2/SDL_video.h>
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_events.h>
+#include <SDL2/SDL_image.h>
 #include "clock/clock.h"
+#include "player/player.h"
+#include "map/map.h"
 
 class Game {
 public:
@@ -19,6 +22,8 @@ private:
     SDL_Renderer* renderer;
     SDL_Event event;
     SDL_Rect fillRect;
+    Player* player;
+    Map* map;
     bool running;
 public:
     Game(char* title, int xPos, int yPos, int width, int height, Uint32 flags);
